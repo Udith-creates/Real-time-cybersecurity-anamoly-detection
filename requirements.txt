@@ -1,4 +1,7 @@
 
-transformers
+pathway
+google-generativeai
+python-dotenv
 streamlit
 pandas
+csv

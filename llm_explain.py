@@ -1,10 +1,15 @@
 
-
-from transformers import pipeline
+import os
 import csv
+import google.generativeai as genai
+from dotenv import load_dotenv
 
-# Use open-access GPT-2 model
-generator = pipeline("text-generation", model="gpt2")
+# Load environment variables
+load_dotenv()
+
+# Configure Google AI with API key
+genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 def retrieve_explanation(log):
     kb_file = "knowledge_base.csv"
@@ -27,7 +32,12 @@ def explain_anomaly(log):
               f"Location: {log.get('location', '')}\n"
               f"Action: {log.get('action', '')}\n"
               f"Timestamp: {log.get('timestamp', '')}\n"
-              f"Details: {rag_explanation}\n")
+              f"Context: {rag_explanation}\n"
+              f"Provide a concise security analysis in 1-2 sentences.")
 
-    output = generator(prompt, max_length=50, do_sample=True, temperature=0.7)
-    return rag_explanation + "\n" + output[0]["generated_text"]
+    try:
+        response = model.generate_content(prompt)
+        ai_explanation = response.text
+        return f"{rag_explanation}\nAI Analysis: {ai_explanation}"
+    except Exception as e:
+        return f"{rag_explanation}\nAI Analysis: Error generating explanation: {str(e)}"
