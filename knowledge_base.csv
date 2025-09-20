@@ -1,0 +1,4 @@
+type,pattern,explanation
+login,location=Russia,Unusual login detected: first-time login from Russia, outside normal hours.
+network,requests>1000,Traffic spike detected: requests much higher than baseline, possible DDoS.
+file_transfer,volume_mb>1000,File transfer volume much higher than usual, suspicious data exfiltration attempt.
