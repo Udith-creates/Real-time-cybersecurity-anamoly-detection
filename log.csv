@@ -260,3 +260,17 @@ timestamp,username,location,action
 2025-09-20T07:56:11.579519,user1,Mumbai,file_access
 2025-09-20T07:56:14.580930,user3,Delhi,logout
 2025-09-20T07:56:17.582938,user2,Mumbai,logout
+2025-09-20T07:56:20.584916,user3,Russia,file_access
+2025-09-20T07:56:23.586327,user2,New York,logout
+2025-09-20T07:56:26.589480,user2,Delhi,login
+2025-09-20T07:56:29.592189,user1,London,logout
+2025-09-20T07:56:32.594391,user3,Mumbai,login
+2025-09-20T07:56:35.596128,user1,Russia,file_access
+2025-09-20T07:56:38.598327,user2,Mumbai,file_access
+2025-09-20T07:56:41.599690,user1,New York,logout
+2025-09-20T07:56:44.602024,user1,Russia,login
+2025-09-20T07:56:47.603889,user2,Delhi,login
+2025-09-20T07:56:50.606437,user3,London,login
+2025-09-20T07:56:53.608293,user3,London,file_access
+2025-09-20T07:56:56.614983,user3,Delhi,file_access
+2025-09-20T07:56:59.618197,user3,New York,login
